@@ -1,0 +1,3 @@
+Let's start with the home page:
+It will have some latest updates(news, blogs, etc) that I want to share.
+Later, part will have the links to my latest projects.
