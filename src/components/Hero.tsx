@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/Button";
 import { portfolioDescription, portfolioName } from "@/constants/portfolioData";
 import { images } from "@/utils/portfolioImages";
 import Image from "next/image";
@@ -18,17 +19,11 @@ const Hero = () => {
         {portfolioDescription}
       </p>
       <div>
-        <Link
-          href={"/projects"}
-          className="px-6 py-2 bg-primary text-white rounded hover:opacity-90 transition"
-        >
-          View Projects
+        <Link href={"/projects"}>
+          <Button className="mr-4">View Projects</Button>
         </Link>
-        <Link
-          href={"/contact"}
-          className="px-6 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-white transition"
-        >
-          Contact Me
+        <Link href={"/contact"}>
+          <Button variant="outline">Contact Me</Button>
         </Link>
       </div>
     </section>

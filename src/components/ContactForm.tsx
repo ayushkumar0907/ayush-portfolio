@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+import { Input, Textarea } from "@/components/ui/Input";
 import { useState } from "react";
 
 const ContactForm = () => {
@@ -23,54 +25,37 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-4">
-          Name
-        </label>
-        <input
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-black text-black dark:text-white"
-          id="name"
-          name="name"
-          placeholder="Your Name"
-          type="text"
-          required
-          value={formData.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-4">
-          Email
-        </label>
-        <input
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-black text-black dark:text-white"
-          id="email"
-          name="email"
-          placeholder="Your Email"
-          type="email"
-          required
-          value={formData.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-4">
-          Message
-        </label>
-        <textarea
-          className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-black text-black dark:text-white"
-          id="message"
-          name="message"
-          placeholder="Your Message"
-          rows={4}
-          required
-          value={formData.message}
-          onChange={handleChange}
-        />
-      </div>
-      <button className="px-6 py-2 bg-primary text-white rounded-md hover:opacity-90 transition">
-        Send Message
-      </button>
+      <Input
+        label="Name"
+        id="name"
+        name="name"
+        placeholder="Your Name"
+        type="text"
+        required
+        value={formData.name}
+        onChange={handleChange}
+      />
+      <Input
+        label="Email"
+        id="email"
+        name="email"
+        placeholder="Your Email"
+        type="email"
+        required
+        value={formData.email}
+        onChange={handleChange}
+      />
+      <Textarea
+        label="Message"
+        id="message"
+        name="message"
+        placeholder="Your Message"
+        rows={4}
+        required
+        value={formData.message}
+        onChange={handleChange}
+      />
+      <Button type="submit">Send Message</Button>
       {submitted && (
         <p className="text-green-600 dark:text-green-400">Message Sent!</p>
       )}
