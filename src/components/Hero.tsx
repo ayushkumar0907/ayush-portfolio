@@ -20,10 +20,10 @@ const Hero = () => {
       </p>
       <div>
         <Link href={"/projects"}>
-          <Button className="mr-4">View Projects</Button>
+          <Button as="span" className="mr-4 cursor-pointer">View Projects</Button>
         </Link>
         <Link href={"/contact"}>
-          <Button variant="outline">Contact Me</Button>
+          <Button as="span" variant="outline" className="cursor-pointer">Contact Me</Button>
         </Link>
       </div>
     </section>
