@@ -1,18 +1,21 @@
 import React from "react";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps<T extends React.ElementType> = {
+  as?: T;
   variant?: "primary" | "outline";
   className?: string;
-  as?: React.ElementType;
-}
+  children?: React.ReactNode;
+} & Omit<React.ComponentPropsWithoutRef<T>, "as" | "variant" | "className" | "children">;
 
-export const Button = ({
+export const Button = <T extends React.ElementType = "button">({
+  as,
   variant = "primary",
   className = "",
   children,
-  as: Component = "button",
   ...props
-}: ButtonProps) => {
+}: ButtonProps<T>) => {
+  const Component = as || "button";
+  
   const baseStyles =
     "px-6 py-2 rounded font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2 inline-block text-center";
   
@@ -25,7 +28,7 @@ export const Button = ({
   return (
     <Component
       className={`${baseStyles} ${variants[variant]} ${className}`}
-      {...(props as any)}
+      {...props}
     >
       {children}
     </Component>
